@@ -1,11 +1,11 @@
 """
 See picture of the board to understand the indicies
 """
-from mancala.board import Board
-from mancala.nodes import Dimple
-from mancala.utils.errors import EmptyDimpleError
+from monazco.board import Board
+from monazco.nodes import Dimple
+from monazco.utils.errors import EmptyDimpleError
 from typing import Tuple
-import mancala.constants as cs
+import monazco.constants as cs
 import pytest
 
 

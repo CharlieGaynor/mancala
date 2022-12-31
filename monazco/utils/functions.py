@@ -1,5 +1,5 @@
-from mancala.board import Board
-import mancala.constants as cs
+from monazco.board import Board
+import monazco.constants as cs
 
 
 def print_board(board: Board):

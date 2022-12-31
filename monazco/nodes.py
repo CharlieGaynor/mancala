@@ -1,4 +1,4 @@
-from mancala.utils import errors
+from monazco.utils import errors
 from typing import TypeVar
 
 DIMP = TypeVar("DIMP", bound="Dimple")

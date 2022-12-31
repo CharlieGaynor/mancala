@@ -1,4 +1,4 @@
-from mancala import play_game
+from monazco import play_game
 
 
 def main():

@@ -1,10 +1,10 @@
 """
 See picture of the board to understand the indicies
 """
-from mancala.board import Board
-from mancala.gymlike_env import MancalaEnv
+from monazco.board import Board
+from monazco.gymlike_env import MonazcoEnv
 import pytest
-import mancala.constants as cs
+import monazco.constants as cs
 
 
 @pytest.fixture
@@ -16,13 +16,13 @@ def board():
 
 @pytest.fixture
 def env():
-    mancala = MancalaEnv()
-    yield mancala
-    del mancala
+    monazco = MonazcoEnv()
+    yield monazco
+    del monazco
 
 
-def test_reset(env: MancalaEnv):
-    obs, legal_moves = env.reset()
+def test_reset(env: MonazcoEnv):
+    (obs, legal_moves), info = env.reset()
 
     assert env._ai_team in [0, 1]
     assert env._player_team in [0, 1] and env._player_team != env._ai_team
@@ -34,22 +34,24 @@ def test_reset(env: MancalaEnv):
         assert legal_moves == cs.PLAYER_2_MOVES
         assert 0 in obs
 
+    assert info.get("legal_moves") == True
 
-def test_step(env: MancalaEnv):
-    obs, legal_moves = env.reset(force_player_first=True)
+
+def test_step(env: MonazcoEnv):
+    (obs, legal_moves), info = env.reset(force_player_first=True)
 
     action = legal_moves[0]
-    obs, legal_moves, reward, done, terminated, info = env.step(action)
+    (obs, legal_moves), reward, done, terminated, info = env.step(action)
 
     assert obs[action] == 0
     assert reward == env._board[cs.THRONE_1_NUM].stones
     assert not done
     assert action not in legal_moves
 
-    obs, legal_moves = env.reset(force_player_first=True)
+    (obs, legal_moves), info = env.reset(force_player_first=True)
 
     action = 0
-    obs, legal_moves, reward, done, terminated, info = env.step(action)
+    (obs, legal_moves), reward, done, terminated, info = env.step(action)
 
     assert all([env._board[i].stones == cs.DEFAULT_STONES for i in cs.PLAYER_2_MOVES])
     assert env._board[cs.THRONE_2_NUM].stones == 0

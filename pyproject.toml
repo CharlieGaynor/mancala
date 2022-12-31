@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "mancala"
+name = "monazco"
 version = "0.1.0"
-description = "gym-like enviornment for the game Mancala, as well as the option to run in the terminal"
+description = "gym-like enviornment for the game Monazco, as well as the option to run in the terminal"
 authors = ["Charlie <CharlieJackGaynor@Gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include="mancala"}]
+packages = [{include="monazco"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

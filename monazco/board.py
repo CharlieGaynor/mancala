@@ -1,6 +1,6 @@
-from mancala.nodes import Dimple
+from monazco.nodes import Dimple
 from typing import Tuple, List
-import mancala.constants as cs
+import monazco.constants as cs
 
 
 class Board:

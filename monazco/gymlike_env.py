@@ -1,11 +1,11 @@
 from typing import Tuple, List
-from mancala.board import Board
-import mancala.constants as cs
-import mancala.utils.errors as er
+from monazco.board import Board
+import monazco.constants as cs
+import monazco.utils.errors as er
 import random
 
 
-class MancalaEnv:
+class MonazcoEnv:
     def __init__(self) -> None:
         self._player_team: int = 0
         self._ai_team: int = 0
@@ -35,7 +35,7 @@ class MancalaEnv:
         # Difference in throne values, whether we have more stones in throne, whether we have won or not
         reward = _throne_values[self._player_team]
 
-        return (obs, self._board.get_legal_moves(self._player_team)), reward, done, done, {'legal_moves': True}
+        return (obs, self._board.get_legal_moves(self._player_team)), reward, done, done, {"legal_moves": True}
 
     def reset(self, force_player_first=False) -> Tuple[List, None]:
         """Prepare environment for next round"""
@@ -52,7 +52,7 @@ class MancalaEnv:
             self._play_ai_turns()
         obs = self._board.stone_values()
         legal_moves = self._board.get_legal_moves(self._player_team)
-        return (obs, legal_moves), {'legal_moves': True}
+        return (obs, legal_moves), {"legal_moves": True}
 
     def _play_ai_turns(self) -> None:
         play_again = True

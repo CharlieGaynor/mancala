@@ -1,5 +1,5 @@
-from mancala.board import Board
-from mancala.utils.functions import print_board
+from monazco.board import Board
+from monazco.utils.functions import print_board
 import time
 import random
 

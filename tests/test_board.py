@@ -1,8 +1,8 @@
 """
 See picture of the board to understand the indicies
 """
-from mancala.board import Board
-import mancala.constants as cs
+from monazco.board import Board
+import monazco.constants as cs
 import pytest
 
 
